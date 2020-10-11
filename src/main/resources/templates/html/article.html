@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>Beself_zjh</title>
+	<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+	<script src="https://cdn.bootcss.com/showdown/1.3.0/showdown.min.js"></script>
+</head>
+<body>
+	<div th:replace="html/common/navigation :: navigation"></div>
+	<input id="markdown" th:value="${articleViewModel.markdown}">
+	<div id="content"></div>
+	<script type="text/javascript">
+		var content = $("#markdown").val(); //使用el表达式获取后台返回的markdown内容
+    	var converter = new showdown.Converter(); //初始化转换器
+    	var htmlcontent  = converter.makeHtml(content); //将MarkDown转为html格式的内容
+    	$("#content").html(htmlcontent);//添加到div中显示出来
+	</script>
+</body>
+
+</html>

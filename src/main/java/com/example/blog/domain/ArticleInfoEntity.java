@@ -8,14 +8,41 @@ public class ArticleInfoEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	private String filename;
+	private String title;
+	private String date;
+	private String label;
 	
-	public String getFilename() {
-		return filename;
+	public ArticleInfoEntity() {}
+	
+	public ArticleInfoEntity(Integer id, String date, String label, String title) {
+		this.id = id;
+		this.date = date;
+		this.label = label;
+		this.title = title;
+	}
+	
+	public String getTitle() {
+		return title;
 	}
 
-	public void setFilename(String filename) {
-		this.filename = filename;
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public String getDate() {
+		return date;
+	}
+
+	public void setDate(String date) {
+		this.date = date;
+	}
+
+	public String getLabel() {
+		return label;
+	}
+
+	public void setLabel(String label) {
+		this.label = label;
 	}
 
 	public Integer getId() {
@@ -28,6 +55,6 @@ public class ArticleInfoEntity {
 
 	@Override
 	public String toString() {
-		return "ArticleInfo {" + "id=" + id + "filename=" + filename + "}";
+		return "ArticleInfo {" + id + "_" + date + "_" + label + "_" + title + "}";
 	}
 }

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Beself_zjh</title>
+</head>
+<body>
+	<div th:replace="html/common/navigation :: navigation"></div>
+	<div th:each="articleSet : ${catalogViewModel.catalog}">
+		<h2 th:text="${articleSet.key}"></h2>
+		<div th:each="article : ${articleSet.value}">
+			<a
+				th:href="'/article?filename=' + ${article.id} + '_' + ${article.date} + '_' + ${article.label} + '_' + ${article.title}"
+				th:text="${article.title}"></a>
+		</div>
+	</div>
+</body>
+
+</html>
